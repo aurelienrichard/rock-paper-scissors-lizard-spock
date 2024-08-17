@@ -1,0 +1,67 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/.env.local",
+    "**/.env"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".svelte-kit/**",
+        "build/**"
+      ]
+    },
+    "check": {},
+    "clean": {
+      "cache": false
+    },
+    "deploy": {
+      "cache": false,
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "functions": {
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": [
+        "check"
+      ]
+    },
+    "logs:preview": {
+      "cache": false,
+      "persistent": true
+    },
+    "logs:production": {
+      "cache": false,
+      "persistent": true
+    },
+    "test": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:coverage": {
+      "cache": false
+    },
+    "test:ui": {
+      "cache": false
+    },
+    "test:watch": {
+      "cache": false
+    },
+    "update-types": {
+      "outputs": [
+        "src/lib/types/supabase.ts"
+      ]
+    }
+  }
+}
